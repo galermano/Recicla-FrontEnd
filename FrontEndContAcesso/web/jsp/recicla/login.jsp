@@ -66,8 +66,20 @@
                 © 2022 ADS FATEC 
             </div>
         </div>
-
     </body>
+    <script type="text/javascript">
+            let input = document.getElementById('pass'),
+                i = document.getElementById('eye');
+                i.addEventListener('click', function() {
+                    if (input.type == 'password') {
+                            input.type = 'text';
+                            this.style.opacity = "1"
+                    } else{
+                        input.type = "password";
+                        this.style.opacity = ".3"
+                    } 
+                });
+    </script>
     <!-- 
     <body>
        <div class="container"/>
