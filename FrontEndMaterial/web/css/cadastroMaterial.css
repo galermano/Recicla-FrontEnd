@@ -28,33 +28,62 @@ body {
   color: #808080 !important;
 }
 
-#login .container #login-row #login-column #login-box {
+#cadasMaterial
+  .container
+  #cadasMaterial-row
+  #cadasMaterial-column
+  #cadasMaterial-box {
+  align-items: center;
+  align-self: center;
+  align-content: center;
   margin-top: 120px;
-  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  width: 400px;
-  height: 550px !important;
+  left: -15%;
+  width: 600px;
+  max-width: 800px;
+  height: 700px !important;
   border: 1px solid #9c9c9c;
   background-color: #eaeaea;
   border-radius: 14px;
   border: none;
   box-shadow: 0 4px 0.5em 0 #bdbebd !important;
 }
-#login .container #login-row #login-column #login-box #login-form {
+#cadasMaterial
+  .container
+  #cadasMaterial-row
+  #cadasMaterial-column
+  #cadasMaterial-box
+  #cadasMaterial-form {
   padding: 20px;
 }
-#login
+#cadasMaterial
   .container
-  #login-row
-  #login-column
-  #login-box
-  #login-form
+  #cadasMaterial-row
+  #cadasMaterial-column
+  #cadasMaterial-box
+  #cadasMaterial-form
   #register-link {
   margin-top: -85px;
 }
 
-.login-form {
+.typeMat {
+  font-size: 18px;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+
+.titleType {
+  font-size: 18px;
+}
+
+.materialType {
+  flex-direction: column;
+  margin-bottom: 10%;
+}
+
+.cadasMaterial-form {
   margin-top: 10px;
 }
 .form-control {
@@ -92,16 +121,24 @@ input:not(:placeholder-shown) + label {
   margin-left: 90%;
   opacity: 0.3;
 }
+.form-group button {
+  flex-direction: row;
+}
 
 .form-group a {
   color: #fff;
 }
 
-.btn-login {
+.btn-cadasMaterial {
   text-align: center;
+  flex-direction: row;
 }
 
-.btn-login button {
+.buttons {
+  flex-direction: row;
+}
+
+.btn-cadasMaterial button {
   font-family: "HK Grotesk", sans-serif;
   font-weight: bold;
   font-size: 15px;
@@ -117,7 +154,7 @@ button:hover {
   background-color: #545454 !important;
 }
 
-.btn-login label {
+.btn-cadasMaterial label {
   margin-top: 12px;
   color: #fffbed;
   font-size: 15px;
