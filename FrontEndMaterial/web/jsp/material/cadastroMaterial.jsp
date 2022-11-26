@@ -3,6 +3,11 @@
 <html>
   <!-- Implementações estilos CSS -->
   <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"
+  />
+
+  <link
     href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
     rel="stylesheet"
     id="bootstrap-css"
@@ -20,10 +25,10 @@
   <!-- Implementações SCRIPTS, PLUGINS e ETC -->
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-  <%@include file="../../inc/materalizeWeb.inc" %>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
   <title>Cadastro Material</title>
-
   <body>
     <div id="cadasMaterial">
       <div class="container">
@@ -48,77 +53,68 @@
                 method="post"
               >
                 <div class="form-group">
-                  <label
-                    for="typeMatt
-                    "
-                  >
-                    <p class="titleType">Tipo de material:</p>
-                  </label>
-                  <select name="select" class="typeMat" id="typeMat">
-                    <option value="valor1">Valor 1</option>
-                    <option value="valor2">Valor 2</option>
-                    <option value="valor3">Valor 3</option>
-                  </select>
+                  <div class="materialType">
+                    <label for="typeMatt">
+                      <p class="titleType">Tipo de material:</p>
+                    </label>
+                    <select name="select" class="typeMat" id="typeMat">
+                      <option value="paper" class="paper">Papel</option>
+                      <option value="plastic" class="plastic">Plástico</option>
+                      <option value="glass" class="glass">Vidro</option>
+                      <option value="metal" class="metal">Metal</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div class="form-group">
+                  <h6 class="titleInput">Nome do Material</h6>
                   <input
                     type="text"
                     name="nameMaterial"
                     id="nameMaterial"
                     class="form-control"
-                    placeholder="Nome do Material"
+                    placeholder="Ex: papelão, copo de vidro, pilha, garrafa pet"
+                    autofocus
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <h6 class="titleInput">Especificação do material</h6>
+                  <input
+                    type="text"
+                    name="Material"
+                    id="specifMaterial"
+                    class="form-control"
+                    placeholder="Reciclavel/Organico"
                     autofocus
                     required
                   />
                 </div>
 
                 <div class="form-group">
+                  <h6>Descrição(Estado do Material)</h6>
                   <input
                     type="text"
                     name="descMaterial"
                     id="descMaterial"
                     class="form-control"
-                    placeholder="Descrição(Estado do Material)"
+                    placeholder="Ex: 300g de papelão amassado"
                     autofocus
                     required
                   />
                 </div>
 
                 <div class="form-group">
-                  <input
-                    type="password"
-                    name="SENHA"
-                    id="pass"
-                    class="form-control"
-                    placeholder="Senha"
-                    autofocus
-                    required
-                  />
-                  <i id="eye" class="eye-1 fas fa-eye"></i>
-                </div>
-                <div class="form-group">
                   <div class="btn-cadasMaterial">
                     <button
-                      id="entrar"
+                      id="adicionar"
                       type="submit"
-                      name="ENVIAR"
-                      value="ENVIAR"
+                      name="ADD"
+                      value="ADD"
                       class="btn btn-info btn-md"
                     >
-                      Entrar</button
-                    ><br />
-                    <button
-                      id="cadastrar"
-                      type=""
-                      name="Cadastrar"
-                      value="Cadastrar"
-                      class="btn btn-info btn-md"
-                    >
-                      <a href="cadastro.jsp" style="text-decoration: none"
-                        >CADASTRAR</a
-                      ></button
-                    ><br />
+                      Adicionar
+                    </button>
                   </div>
                   <!--  <label for="remember-me" class="text-info"><span>Recuperar Acesso</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label> -->
                 </div>
@@ -173,5 +169,5 @@
         </form>
         </div>
     </body>
-    -->
+    -->
 </html>
