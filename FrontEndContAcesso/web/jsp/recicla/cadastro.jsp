@@ -18,13 +18,13 @@
                     <div id="login-column" class="col-md-6">
                         <div id="login-box" class="col-md-12">
                             <h3 class="text-center text-white pt-5">Cadastro</h3>
-                               
                             <form id="login-form" name="cadastrarUsuario" class="form" action="validaCadastrarUsuario.jsp" method="post">
+                                   <h2 class="">Usuário</h2>
                                     <div class="form-group">  
                                         <input type="text" name="IDENTIFICACAO"  id="identificacao" class="form-control" placeholder="CPF/CNPJ" autofocus required>
                                     </div>
-                                    
-                                    <div class="form-group">                             
+                                    <div class="form-group">  
+                                        
                                         <input type="text" name="NOME" id="nome" class="form-control" maxlenght="256px" placeholder="Nome" autofocus required>
                                     </div>
                                     <div class="form-group">                             
@@ -42,6 +42,24 @@
                                         <input type="password" name="SENHA" id="pass" class="form-control" maxlength="50px" placeholder="Senha" autofocus required>
                                         <i id="eye" class="fas fa-eye"></i>
                                     </div>
+                                    
+                                    <h2 class="">Logradouro</h2>
+                                    <div class="form-group">                             
+                                        <input type="text" name="CEP" id="cep" class="form-control" maxlenght="10px" placeholder="CEP" autofocus required>
+                                    </div>
+ 
+                                    <div class="form-group">                             
+                                        <input type="text" name="ENDERECO" id="endereco" class="form-control" placeholder="Endereço" autofocus required>
+                                    </div>
+                                    
+                                    <div class="form-group">                             
+                                        <input type="number" name="NUMERO" id="numero" class="form-control"  placeholder="Número" autofocus required>
+                                    </div>
+                                   
+                                     <div class="form-group">                             
+                                         <textarea type="text" name="COMPLEMENTO" id="complemento" class="form-control" maxlenght="120px" placeholder="Complemento" autofocus required></textarea>
+                                    </div>
+
                                     <div class="form-group">
                                         <div class="btn-login">       
                                             <button id="cadastrar" type="" name="Enviar" value="OK" class="btn btn-info btn-md" >FINALIZAR</button><br>
@@ -49,7 +67,7 @@
                                         </div>    
                                     </div>
                                 </form>
-                            <!-- 
+                            <!--
                             <div id="opCadastro" class="">
                                 <li><a href="">Cadastro Usuário</a></li>
                                 <li><a href="">Cadastro Logradouro</a></li>
@@ -81,6 +99,32 @@
                     } 
                 });
         </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+	    $("#cep").mask("99.999-999");
+        });
+        </script>
+        <script>
+	    $("#cep").blur(function(){
+	    // Remove tudo o que não é número para fazer a pesquisa
+	    var cep = this.value.replace(/[^0-9]/, "");
+
+	    if(cep.length != 8){
+		return false;
+	    }
+            var url = "https://viacep.com.br/ws/"+cep+"/json/";
+	    
+            $.getJSON(url, function(dadosRetorno){
+		try{
+		// Preenche os campos de acordo com o retorno da pesquisa
+		$("#endereco").val(dadosRetorno.logradouro);
+		$("#cidade").val(dadosRetorno.localidade);
+		}catch(ex){}
+	        });
+	    });
+	</script>
+        
+        
         <script>
             document.getElementById('identificacao').addEventListener('input', function(e) {
                 let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
@@ -98,11 +142,6 @@
             });
         </script>
         
-        <script>
-            function(t) {
-                if (t.target === t.currentTarget || t.timeStamp >= i || t.timeStamp <= 0 || t.target.ownerDocument !== document) return o.apply(this, arguments)
-            }
-        </script>
  </body>
 </html> 
 
