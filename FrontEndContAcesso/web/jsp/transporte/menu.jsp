@@ -28,7 +28,7 @@
     </div>
 <br>
 <div style='  position: absolute; top: 90%;left: 42%; ' class=" section">
-<a style='font-size:42pt' class='center-align' href="../transporte/listarTransporte.jsp"> Listar Transporte </a>
+<a style='font-size:42pt' class='center-align' href="../transporte/listarTransportes.jsp"> Listar Transporte </a>
 <div class="center-align divider"></div>
     </div>
 <br>
