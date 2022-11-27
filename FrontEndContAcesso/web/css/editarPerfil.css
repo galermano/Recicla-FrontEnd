@@ -18,17 +18,13 @@ body {
   -moz-box-sizing: border-box;
 }
 
-.text-white {
-    color: #808080!important;
+h2{
+    color: black;
 }
 
 #login .container #login-row #login-column #login-box {
-  margin-top: 120px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 700px;
-  height: 500px;
+  margin-top: 20%;
+  margin-bottom: 20%;
   background-color: #EAEAEA;
   border-radius: 14px;
   border: none;
@@ -129,6 +125,7 @@ button:hover {
   padding: 0 4% .5em 4%;
     padding-top: 0px;
 }
+
 
 .pn {
   padding: 0 4% .5em 4%;

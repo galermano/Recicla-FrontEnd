@@ -49,15 +49,11 @@
                                     </div>
  
                                     <div class="form-group">                             
-                                        <input type="text" name="ENDERECO" id="endereco" class="form-control" placeholder="Endereço" autofocus required>
+                                        <input type="text" name="NOME_REGIAO" id="endereco" class="form-control" placeholder="Nome da região" autofocus required>
                                     </div>
-                                    
-                                    <div class="form-group">                             
-                                        <input type="number" name="NUMERO" id="numero" class="form-control"  placeholder="Número" autofocus required>
-                                    </div>
-                                   
+                           
                                      <div class="form-group">                             
-                                         <textarea type="text" name="COMPLEMENTO" id="complemento" class="form-control" maxlenght="120px" placeholder="Complemento" autofocus required></textarea>
+                                         <textarea type="text" name="DESCRICAO" id="complemento" class="form-control" maxlenght="120px" placeholder="Adicione a zona da região" autofocus required></textarea>
                                     </div>
 
                                     <div class="form-group">
