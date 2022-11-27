@@ -31,7 +31,7 @@ Coleta colSai = contCol.buscar(newCol);
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
-    <link href="../../css/agendarColeta.css" rel="stylesheet">
+    <link href="../../css/cadastro.css" rel="stylesheet">
     <!-- Implementações SCRIPTS, PLUGINS e ETC -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script async="" src="https://www.google-analytics.com/analytics.js"></script>

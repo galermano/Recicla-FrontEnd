@@ -1,13 +1,18 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
-    <!-- Implementações estilos CSS -->
+    <!-- ImplementaÃ§Ãµes estilos CSS -->
    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
-    <link href="../../css/editarPerfil.css" rel="stylesheet">
+    <link href="../../css/menu.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
     <style>
         * {
            word-break: break-word;
@@ -58,13 +63,13 @@
             border-radius: 0px 0px 10px 10px;
         }
     </style>
-    <!-- Implementações SCRIPTS, PLUGINS e ETC -->
+    <!-- ImplementaÃ§Ãµes SCRIPTS, PLUGINS e ETC -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <title>Editar Perfil</title>
+    <title>Cadastro VeÃ­culo</title>
 
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -76,7 +81,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="menu.jsp"><i class="fas fa-house-blank"></i>Início<span ></span></a>
+                            <a class="nav-link" href="#"><i class="fas fa-house-blank"></i>InÃ­cio<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -84,7 +89,7 @@
                             </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Cadastrar Material</a>
-                            <a class="dropdown-item" href="#">Cadastrar Veículo</a>
+                            <a class="dropdown-item" href="#">Cadastrar VeÃ­culo</a>
                             <a class="dropdown-item" href="#">Telas de Coleta</a>
                         </div>
                         </li>
@@ -104,85 +109,34 @@
                         <div class="dropdown-menu drop2" aria-labelledby="navbarDropdown">
                                 
                                <a class="dropdown-item" href="#">Editar Perfil</a>
-                               <a class="dropdown-item" href="#">Configurações</a>                    
-                               <a class="dropdown-item" href="login.jsp" style="color: red;">Sair</a> 
+                               <a class="dropdown-item" href="#">ConfiguraÃ§Ãµes</a>                    
                             </div>
                             </li>
                     </div>
+                    
             </div>
         </nav>
-        <div id="login">
-            <div class="container">
-                <div id="login-row" class="row justify-content-center align-items-center">
-                    <div id="login-column" class="col-md-6">
-                        <div id="login-box" class="col-md-12">
-                            <h3 class="text-center text-white pt-5">Editar Perfil</h3>
-                                <form id="login-form" class="form" action="" method="post">
-                                    <div class="form-group">  
-                                        <input type="text" name="" id="identificacao" class="form-control" placeholder="CPF/CNPJ" autofocus required>
-                                    </div>
-                                    
-                                    <div class="form-group">                             
-                                        <input type="text" name="NOME" id="nome" class="form-control" maxlenght="256px" placeholder="Nome" autofocus required>
-                                       
-                                    </div>
-                                    
-                                    <div class="form-group">                             
-                                        <input type="text" name="TIPO" id="" class="form-control" placeholder="Tipo" autofocus required>
-                                        
-                                    </div><!-- comment -->
-                                    
-                                    <div class="form-group">                             
-                                        <input type="email" name="EMAIL" id="email" class="form-control" placeholder="Email" autofocus required> 
-                                    </div>
-                                    
-                                    <div class="form-group">                             
-                                        <input type="password" name="SENHA" id="pass" class="form-control" maxlength="50px" placeholder="Senha" autofocus required>
-                                       <!-- <i id="eye" class="fas fa-eye"></i> -->
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="btn-login">       
-                                            <button id="cadastrar" type="" name="CADASTRAR" value="Cadastrar" class="btn btn-info btn-md" formaction=".jsp">FINALIZAR</button><br>      
-                                            </div>    
-                                      </div>
-                                </form>
-                           </div>
-                      </div>
-                 </div>
-            </div>
-       </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
     </body>
 </html>
 
 
 
-<!-- 
-<html>
-    
-    <title>ALTERAR - DISCIPLINA</title>
+
+<!--
+    <title>INSERIR - DISCILINA</title>
     <body>
        <div class="container"/>
-       <h1>ALTERAR DISCIPLINA</h1>
-        <form name="alterarDisciplina" action="validaAlterarDisciplina.jsp" method="post">
-            Id: <input type="number" name="ID" value=""> <br>
+        <h1>INSERIR DISCIPLINA</h1>
+        <form name="inserirDisciplina" action="validaInserirDisciplina.jsp" method="post">
             Nome: <input type="text" name="NOME" value=""> <br>
             Periodo: <input type="text" name="PERIODO" value=""> <br>
-            Carga Horaria: <input type="number" name="CARGAH" value=""> <br>
+            Carga Horaria <input type="number" name="CARGAH" value=""> <br>
             Curso <input type="text" name="CURSO" value="" placeholder="ex: (Em andamento/Finalizado)"> <br>
-            Descrição <input type="text" name="DESCRICAO" value=""> <br>                 
+            Descricao <input type="text" name="DESCRICAO" value=""> <br>
+            
             <input type="submit" name="Enviar" value="OK">
         </form>
-        <div>
+        </div>
     </body>
-</html>
---> 
+-->

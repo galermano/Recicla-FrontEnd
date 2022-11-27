@@ -89,8 +89,10 @@
                                     <label>Usuario de Coleta</label>  
                                     <select name="USUC" id="usuc" class="form-control" autofocus required>
                                     <option value="#"> </option>
-                                    <% for(Usuario usu : usuarios) { %>
-                                    	<option value="<%= usu.getId() %>"> <%= new ControllerPessoa().buscar(new Pessoa(usu.getId_pessoa())).getNome() %></option>
+                                    <% for(Usuario usu : usuarios) { 
+                                    	Pessoa p = new ControllerPessoa().buscar(new Pessoa(usu.getId_pessoa()));
+                                    %>
+                                    	<option value="<%= usu.getId() %>"> <%= p.getNome() %> (ID: <%= p.getId() %>)</option>
                                     <% } %>
                                     </select>
                                 </div>

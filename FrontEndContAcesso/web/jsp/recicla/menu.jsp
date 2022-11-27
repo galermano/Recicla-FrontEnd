@@ -1,4 +1,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.recicla.contAcesso.controller.ControllerUsuario" %>
+<%@page import="com.recicla.contAcesso.model.bean.Usuario" %>
+
+<%
+    String login = request.getParameter("EMAIL");
+    String senha = request.getParameter("SENHA");
+    Usuario usu = new Usuario(login, senha);
+    ControllerUsuario contUsu = new ControllerUsuario();
+ 
+   
+       
+
+
+%>
 
 
 <!DOCTYPE html>
@@ -69,7 +83,10 @@
     <title>Menu</title>
 
     <body>
-
+        <% if (contUsu.validar(usu)) { 
+            
+            
+         %>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Reciclagem</a>
 
@@ -83,12 +100,12 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-calculator"></i>  Controle de Acesso
+                            <i class="fas fa-calculator"></i>  Exemplo Dropdown
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Cadastrar Material</a>
-                            <a class="dropdown-item" href="#">Cadastrar Veículo</a>
-                            <a class="dropdown-item" href="#">Telas de Coleta</a>
+                            <a class="dropdown-item" href="#">Dropdown</a>
+                            <a class="dropdown-item" href="#">Dropdown</a>
+                            <a class="dropdown-item" href="#">Dropdown</a>
                         </div>
                     </li>
 
@@ -115,5 +132,14 @@
 
             </div>
         </nav>
+
+        <%            } else { %>
+        
+        <h1>Usuario Invalido</h1>
+        
+        <%
+            }
+        %>
+
     </body>
 </html>

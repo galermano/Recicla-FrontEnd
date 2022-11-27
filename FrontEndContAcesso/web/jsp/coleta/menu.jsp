@@ -32,6 +32,16 @@
 <div class="center-align divider"></div>
     </div>
 <br>
+<div style='  position: absolute; top: 105%;left: 42%; ' class=" section">
+<a style='font-size:42pt' class='center-align' href="../logradouro/listarLogradouros.jsp"> Listar Logradouros</a>
+<div class="center-align divider"></div>
+    </div>
+<br>
+<div style='  position: absolute; top: 120%;left: 42%; ' class=" section">
+<a style='font-size:42pt' class='center-align' href="../logradouro/cadastrarLogradouro.jsp"> Cadastrar Logradouro</a>
+<div class="center-align divider"></div>
+    </div>
+<br>
 
     </body>
 </html>

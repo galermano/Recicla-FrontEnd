@@ -26,20 +26,29 @@
     <script async="" src="https://www.google-analytics.com/analytics.js"></script>
     <%@include file="../../inc/materalizeWeb.inc" %>
 
-	<title>Buscar coleta</title>
+	<title>Cadastrar Logradouro</title>
 </head>
 <body>
+	    <body>
         <div id="login">
             <div class="container">
                 <div id="login-row" class="row justify-content-center align-items-center">
                     <div id="login-column" class="col-md-6">
                         <div id="login-box" class="col-md-12">
-                            <h3 class="text-center text-white pt-5"><br>Buscar Coleta</h3>
+                            <h3 class="text-center text-white pt-5"><br>Cadastrar Logradouro</h3>
 
-                            <form id="login-form" class="form" action="validaBuscarColeta.jsp" method="post">
+                            <form id="login-form" class="form" action="validaCadastrarLogradouro.jsp" method="post">
                                 
                                 <div class="form-group">  
-                                    <input type="text" name="ID" id="id" class="form-control" placeholder="ID da Coleta" autofocus required>
+                                    <input type="text" name="END" id="endereco" class="form-control" placeholder="Endereço" autofocus required>
+                                </div>
+
+                                <div class="form-group">                             
+                                    <input type="text" name="COMPL" id="complemento" class="form-control" placeholder="Complemento" autofocus required>
+                                </div>
+                                
+								<div class="form-group">                             
+                                    <input type="text" name="CEP" id="cep" class="form-control" placeholder="CEP" autofocus required>
                                 </div>
                                 
 
@@ -47,7 +56,7 @@
 
                                     <div class="btn-login">
                                         
-                                        <button id="entrar" type="submit" name="ENVIAR" value="ENVIAR" class="btn btn-info btn-md" >Buscar</button><br>
+                                        <button id="entrar" type="submit" name="ENVIAR" value="ENVIAR" class="btn btn-info btn-md" >Cadastrar</button><br>
                                     </div>  
 
                                     
@@ -68,6 +77,7 @@
                 © 2022 ADS FATEC 
             </div>
         </div>
+    </body>
 
 </body>
 </html>
