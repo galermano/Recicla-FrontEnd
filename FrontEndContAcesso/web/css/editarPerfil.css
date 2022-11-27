@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@import url('http://fonts.cdnfonts.com/css/ruda');
+@import url('http://fonts.cdnfonts.com/css/hk-groteks');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #d3d3d3;
+  height: 100vh;
+}
+
+* {
+  word-break: break-word;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border: 0;
+  -moz-box-sizing: border-box;
+}
+
+h2{
+    color: black;
+}
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 20%;
+  margin-bottom: 20%;
+  background-color: #EAEAEA;
+  border-radius: 14px;
+  border: none;
+  box-shadow:  0 4px 0.5em 0 #bdbebd!important;
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+.login-form{
+    margin-top: 10px;
+}
+
+.form-control{ 
+    background-color: #fff!important;
+    box-shadow:  0 4px 0.5em 0 #bdbebd!important;
+    border-radius: 6px!important;
+    z-index: 1!important; 
+    border: 0 none!important;
+    outline: 0!important;
+    border: 0px!important;
+    padding: 4px!important;
+}
+
+input::placeholder{ 
+    color: #555555!important;
+    opacity: 50%!important;
+    font-size: 15.5px!important;
+    padding: 2%!important;
+}
+input:not(:placeholder-shown){
+    border-bottom: #a9a9a9 4px solid!important;
+}
+input:not(:placeholder-shown) + label{
+    transform: translateY(-14px) scale(.8)!important;
+}
+
+.form-group button{ 
+    background-color: #878787;
+    margin-bottom: 0.5rem; 
+}
+
+.form-group i{ 
+   font-size: 20px;
+   margin-top: -220%;
+   margin-left: 90%;
+   opacity: .3;
+}
+ 
+.form-group a{ 
+   color: #808080!important;
+}
+
+.btn-login{
+    text-align: center;
+}
+
+.btn-login button {
+    font-family: 'HK Grotesk', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 2px;
+    margin-top: 8px;
+    margin-bottom: -4px;
+    border-radius: 40px;
+    height: 55px;
+    width: 45%;
+}
+
+button:hover {
+    background-color: #545454!important;
+}
+
+.btn-login label{
+    margin-top: 12px!important;
+    color: #808080!important;
+    font-size: 18px!important;
+    border: none!important;
+    font-weight: bold!important;
+    cursor: pointer!important;
+}
+
+.rodape {
+  background-color: #808080;
+  color: #eee;
+  font-weight: 300;
+  line-height: 1.8em;
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+
+.pn {
+  padding: 0 4% .5em 4%;
+    padding-top: 0px;
+}
+
+
+.pn {
+  padding: 0 4% .5em 4%;
+    padding-top: 0px;
+}
+
