@@ -21,7 +21,7 @@
     </div>
     <br />
     <div style="position: absolute; top: 105%; left: 42%" class="section">
-      <a style="font-size: 42pt" class="center-align" href="listarMaterial.jsp">
+      <a style="font-size: 42pt" class="center-align" href="consultarMaterial.jsp">
         Listar material</a
       >
       <div class="center-align divider"></div>

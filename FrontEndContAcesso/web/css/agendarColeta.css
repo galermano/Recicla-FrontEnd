@@ -119,6 +119,12 @@ button:hover {
     font-size: 15px;
 }
 
+.btn-primary a{
+    color: white;
+}
+.btn-primary{
+    background-color: red;
+}
 
 .clear {
   clear: both;
