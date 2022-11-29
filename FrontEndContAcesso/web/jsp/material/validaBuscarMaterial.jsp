@@ -1,46 +1,38 @@
-<%@page import="com.recicla.contAcesso.controller.ControllerPessoa"%>
-<%@page import="com.recicla.contAcesso.model.bean.Pessoa"%>
-<%@page import="com.recicla.util.model.bean.Status"%>
-<%@page import="com.recicla.util.controller.ControllerStatus"%>
-<%@page import="com.recicla.contAcesso.model.bean.Usuario"%>
-<%@page import="com.recicla.contAcesso.controller.ControllerUsuario"%>
-<%@page import="com.recicla.coleta.model.bean.Logradouro"%>
-<%@page import="com.recicla.coleta.controller.ControllerLogradouro"%>
-<%@page import="com.recicla.coleta.controller.ControllerColeta"%>
-<%@page import="com.recicla.coleta.model.bean.Coleta"%>
+<%@page import="com.recicla.material.controller.ControllerMaterial"%>
+<%@page import="com.recicla.material.model.bean.Material"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+         pageEncoding="ISO-8859-1"%>
 
 
-<% 
+<%
 
+    int id_material = Integer.parseInt(request.getParameter("ID"));
 
-int status =  Integer.parseInt(request.getParameter("ID"));
+    Material materialEntrada = new Material(id_material);
+    ControllerMaterial contMaterial = new ControllerMaterial();
+    Material matSaida = contMaterial.buscar(materialEntrada);
 
-Coleta newCol = new Coleta(status);
-ControllerColeta contCol = new ControllerColeta();
-Coleta colSai = contCol.buscar(newCol);
 
 %>
 
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Implementaï¿½ï¿½es estilos CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
-    <link href="../../css/cadastro.css" rel="stylesheet">
-    <!-- Implementaï¿½ï¿½es SCRIPTS, PLUGINS e ETC -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <%@include file="../../inc/materalizeWeb.inc" %>
+    <head>
+        <!-- Implementaï¿½ï¿½es estilos CSS -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
+        <link href="../../css/cadastro.css" rel="stylesheet">
+        <!-- Implementaï¿½ï¿½es SCRIPTS, PLUGINS e ETC -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+        <%@include file="../../inc/materalizeWeb.inc" %>
 
-	<title>Buscar Material</title>
-</head>
-<body>
-	    <body>
+        <title>Buscar Material</title>
+    </head>
+    <body>
+    <body>
         <div id="login">
             <div class="container">
                 <div id="login-row" class="row justify-content-center align-items-center">
@@ -48,74 +40,47 @@ Coleta colSai = contCol.buscar(newCol);
                         <div id="login-box" class="col-md-12">
                             <h3 class="text-center text-white pt-5"><br>Buscar Material</h3>
 
-							<%                                     
-							ControllerLogradouro contLog = new ControllerLogradouro();
-                            Logradouro logc = contLog.buscar(new Logradouro(colSai.getIdLogradouroE()));
-                            Logradouro loge = contLog.buscar(new Logradouro(colSai.getIdLogradouroR()));
 
-                            
-                            ControllerUsuario contUsu = new ControllerUsuario();
-                            Usuario usuc = contUsu.buscar(new Usuario(colSai.getIdUsuarioR()));
-                            Usuario usue = contUsu.buscar(new Usuario(colSai.getIdUsuarioE()));
-                            
-                            ControllerStatus contSta = new ControllerStatus();
-                            Status sta = contSta.buscar(new Status(colSai.getIdStatus()));
-                            %>
 
                             <form id="login-form" class="form" action="menu.jsp" method="post">
 
+                                <div class="materialType">
+                                    <label for="typeMatt">
+                                        <p class="titleType">Tipo de material:</p>
+                                    </label>
+                                    <select name="ID_TIPO_MATERIAL" class="typeMat" id="typeMat">
+                                        <option value="#"><p><%= matSaida.getTipoMat().getNome()%></p></option>
+                                    </select>
+                                </div>
+
+
                                 <div class="form-group">
-                                	<label>Status</label>  
-                                    <select name="STATUS" id="status" class="form-control" autofocus required>
-                                    <option value="#"> <%= sta.getNome() %> </option>
-                                    </select>
+                                    <h6 class="titleInput">Nome do Material</h6>
+                                    <input type="text" name="NOME" id="nameMaterial" class="form-control" value="<%= matSaida.getNome() %>"
+                                           placeholder="Ex: papelão, copo de vidro, pilha, garrafa pet" autofocus
+                                           required />
                                 </div>
-                                <div class="form-group">  
-                                    <label>Logradouro de Coleta</label>  
-                                    <select name="LOGC" id="logc" class="form-control" autofocus  required>
-                                    <option value="#"> <%= logc.getCep() %> </option>
-                                    </select>
-                                </div>
-                                <div class="form-group">  
-                                    <label>Logradouro de Entrega</label>  
-                                    <select name="LOGE" id="loge" class="form-control" autofocus required>
-                                     <option value="#"> <%= loge.getCep() %> </option>
-
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">  
-                                    <label>Usuario de Coleta</label>  
-                                    <select name="USUC" id="usuc" class="form-control" autofocus required>
-                                    <option value="#"> <%= new ControllerPessoa().buscar(new Pessoa(usuc.getId_pessoa())).getNome()%> </option>
-                                    </select>
-                                </div>
-                                <div class="form-group">  
-                                    <label>Usuario de Entrega</label>  
-                                    <select name="USUE" id="usue" class="form-control" autofocus required>
-                                    <option value="#"> <%= new ControllerPessoa().buscar(new Pessoa(usue.getId_pessoa())).getNome()%> </option>
-
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">  
-                                    <input type="text" value="<%= colSai.getCompl() %>" name="COMPL" id="compl" class="form-control" placeholder="Complemento" autofocus required>
+                                <div class="form-group">
+                                    <h6 class="titleInput">Especificação do material</h6>
+                                    <input type="text" name="ID_TIPO_MATERIAL" id="specifMaterial"
+                                      value="<%= matSaida.getTipoMat().getEspecificacao() %>"     class="form-control" placeholder="Reciclavel/Organico" autofocus required />
                                 </div>
 
-                                <div class="form-group">                             
-                                    <input type="number" value="<%= colSai.getQuantidade() %>" name="QUANT" id="quantidade" class="form-control" placeholder="Quantidade" autofocus required>
+                                <div class="form-group">
+                                    <h6>Descrição(Estado do Material)</h6>
+                                    <input type="text" name="DESCRICAO" id="descMaterial" class="form-control"
+                                       value="<%= matSaida.getDescricao() %>"    placeholder="Ex: 300g de papelão amassado" autofocus required />
                                 </div>
 
-                                
 
                                 <div class="form-group">
 
                                     <div class="btn-login">
-                                        
+
                                         <button id="entrar" type="submit" name="ENVIAR" value="ENVIAR" class="btn btn-info btn-md" >Voltar</button><br>
                                     </div>  
 
-                                    
+
                                 </div>
 
                             </form>
