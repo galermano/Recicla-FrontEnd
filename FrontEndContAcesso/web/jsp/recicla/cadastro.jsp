@@ -30,9 +30,9 @@
                                     <div class="form-group">                             
                                         <select class="form-control" id="opcoes" name="TIPO">
                                             <option>Selecione um tipo</option>
-                                            <option class="" value="">Usuário</option>
-                                            <option class="" value="">Administrador</option>
-                                            <option class="" value="">Coletador</option>
+                                            <option class=""  name="TIPO">Usuario</option>
+                                            <option class=""  name="TIPO">Administrador</option>
+                                            <option class=""  name="TIPO">Coletador</option>
                                         </select>
                                     </div><!-- comment -->
                                     <div class="form-group">                             

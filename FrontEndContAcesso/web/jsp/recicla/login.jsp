@@ -27,7 +27,7 @@
                                         <div id="login-box" class="col-md-12">
                                             <h3 class="text-center text-white pt-5"><i class="fas fa-user-circle" style="font-size: 100px;"></i><br>Login</h3>
 
-                                            <form id="login-form" class="form" action="validaLogin.jsp" method="post">
+                                            <form id="login-form" class="form" action="validaLogin.jsp" action="editarPerfil.jsp" method="post">
 
                                                 <div class="form-group">  
                                                     <input type="email" name="EMAIL" id="username" class="form-control" placeholder="Email" autofocus required>

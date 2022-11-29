@@ -28,12 +28,12 @@
             }
 
             main{
-                
+
                 background-color: #b5cbd8 ;
                 margin-top: 3%;
                 padding: 5%;
             }
-            
+
             main h2{
                 margin-top: 5%;
             }
@@ -77,6 +77,8 @@
                 DaoUsuario contUsu = new DaoUsuario();
                 Usuario usuSaida = contUsu.validar(usuEntrada);
 
+                session.setAttribute("usuario", usuSaida);
+                
                 String url;
 
                 if (usuSaida.getLogin().equals(login) && usuSaida.getSenha().equals(senha)) {

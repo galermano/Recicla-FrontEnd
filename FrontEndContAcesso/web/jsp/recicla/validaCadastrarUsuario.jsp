@@ -52,52 +52,59 @@
     Pessoa pesSaida = contPes.inserir(pesEntrada);
     int id_pessoa = pesSaida.getId();
 
-    int id_acesso = 0;
+//    Status statusEntrada = new Status("ativo","logado");
+//    ControllerStatus contStatus = new ControllerStatus();
+//    Status statusSaida = contStatus.inserir(statusEntrada);
+//    
+//    int id_status = statusSaida.getId();
+    
+//    int id_acesso = 0;
 
     if (tipo.toLowerCase().equals("coletador")) {
-        Modulo moduloSaida = new Modulo(4);
-        DaoModulo daoMod = new DaoModulo();
-        moduloSaida = daoMod.buscar(moduloSaida);
+//        Modulo moduloSaida = new Modulo(4);
+//        DaoModulo daoMod = new DaoModulo();
+//        moduloSaida = daoMod.buscar(moduloSaida);
+//
+//        int id_modulo = moduloSaida.getId();
+       
+//        Acesso acessEntrada = new Acesso(id_modulo, tipo);
+//        ControllerAcesso contAcesso = new ControllerAcesso();
+//        Acesso acessSaida = contAcesso.inserir(acessEntrada);
+//        id_acesso = acessSaida.getId();
 
-        int id_modulo = moduloSaida.getId();
-        Acesso acessEntrada = new Acesso(id_modulo, tipo);
-        ControllerAcesso contAcesso = new ControllerAcesso();
-        Acesso acessSaida = contAcesso.inserir(acessEntrada);
-        id_acesso = acessSaida.getId();
-
-        Usuario newCol = new Usuario(id_pessoa, id_acesso, 1, login, senha,
+        Usuario newCol = new Usuario(id_pessoa, 1, 3 , login, senha,
                 new java.sql.Date(data_inicio.getTime()), new java.sql.Date(data_fim.getTime()));
         ControllerUsuario contCol = new ControllerUsuario();
         Usuario usuSaida = contCol.inserir(newCol);
 
-    } else if (tipo.toLowerCase().equals("usuário")) {
-        Modulo moduloSaida = new Modulo(1);
-        DaoModulo daoMod = new DaoModulo();
-        moduloSaida = daoMod.buscar(moduloSaida);
+    } else if (tipo.toLowerCase().equals("usuario")) {
+//        Modulo moduloSaida = new Modulo(1);
+//        DaoModulo daoMod = new DaoModulo();
+//        moduloSaida = daoMod.buscar(moduloSaida);
+//
+//        int id_modulo = moduloSaida.getId();
+//        Acesso acessEntrada = new Acesso(id_modulo, tipo);
+//        ControllerAcesso contAcesso = new ControllerAcesso();
+//        Acesso acessSaida = contAcesso.buscar(acessEntrada);
+//        id_acesso = acessSaida.getId();
 
-        int id_modulo = moduloSaida.getId();
-        Acesso acessEntrada = new Acesso(id_modulo, tipo);
-        ControllerAcesso contAcesso = new ControllerAcesso();
-        Acesso acessSaida = contAcesso.inserir(acessEntrada);
-        id_acesso = acessSaida.getId();
-
-        Usuario newCol = new Usuario(id_pessoa, id_acesso, 1, login, senha,
+        Usuario newCol = new Usuario(id_pessoa,1,1, login, senha,
                 new java.sql.Date(data_inicio.getTime()), new java.sql.Date(data_fim.getTime()));
         ControllerUsuario contCol = new ControllerUsuario();
         Usuario usuSaida = contCol.inserir(newCol);
 
     } else {
-        Modulo moduloSaida = new Modulo(5);
-        DaoModulo daoMod = new DaoModulo();
-        moduloSaida = daoMod.buscar(moduloSaida);
+//        Modulo moduloSaida = new Modulo(5);
+//        DaoModulo daoMod = new DaoModulo();
+//        moduloSaida = daoMod.buscar(moduloSaida);
+//
+//        int id_modulo = moduloSaida.getId();
+//        Acesso acessEntrada = new Acesso(id_modulo, tipo);
+//        ControllerAcesso contAcesso = new ControllerAcesso();
+//        Acesso acessSaida = contAcesso.inserir(acessEntrada);
+//        id_acesso = acessSaida.getId();
 
-        int id_modulo = moduloSaida.getId();
-        Acesso acessEntrada = new Acesso(id_modulo, tipo);
-        ControllerAcesso contAcesso = new ControllerAcesso();
-        Acesso acessSaida = contAcesso.inserir(acessEntrada);
-        id_acesso = acessSaida.getId();
-
-        Usuario newCol = new Usuario(id_pessoa, 1, id_acesso, login, senha,
+        Usuario newCol = new Usuario(id_pessoa, 1, 4, login, senha,
         new java.sql.Date(data_inicio.getTime()), new java.sql.Date(data_fim.getTime()));
         ControllerUsuario contCol = new ControllerUsuario();
         Usuario usuSaida = contCol.inserir(newCol);
