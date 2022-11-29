@@ -7,13 +7,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    String nome = request.getParameter("NOME");
     int id_tipo_material = Integer.parseInt(request.getParameter("ID_TIPO_MATERIAL"));
+    String nome = request.getParameter("NOME");
     String descricao = request.getParameter("DESCRICAO");
 
     Material matEntrada = new Material(id_tipo_material, nome, descricao);
     ControllerMaterial contMat = new ControllerMaterial();
-    Material matSaida = contMat.alterar(matEntrada);
+    Material matSaida = contMat.inserir(matEntrada);
 
     // REDIRECIONA PARA A PAG LOGIN.JSP
     String url = "inserirMaterial.jsp";

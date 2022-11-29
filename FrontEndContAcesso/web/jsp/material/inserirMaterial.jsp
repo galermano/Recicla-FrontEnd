@@ -38,42 +38,40 @@
                                             <p class="titleType">Tipo de material:</p>
                                         </label>
                                         <select name="ID_TIPO_MATERIAL" class="typeMat" id="typeMat">
-                                            <option value="paper" class="paper">Papel</option>
-                                            <option value="plastic" class="plastic">Plástico</option>
-                                            <option value="glass" class="glass">Vidro</option>
-                                            <option value="metal" class="metal">Metal</option>
+                                            <option value="1" class="paper">Papel</option>
+                                            <option value="2" class="plastic">Plástico</option>
+                                            <option value="3" class="glass">Vidro</option>
+                                            <option value="4" class="metal">Metal</option>
                                         </select>
                                     </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <h6 class="titleInput">Nome do Material</h6>
-                                    <input type="text" name="NOME" id="nameMaterial" class="form-control"
-                                        placeholder="Ex: papelão, copo de vidro, pilha, garrafa pet" autofocus
-                                        required />
-                                </div>
-                                
-                                <div class="form-group">
-                                    <h6 class="titleInput">Especificação do material</h6>
-                                    <input type="text" name="ESPECIFICACAO" id="specifMaterial" class="form-control"
-                                        placeholder="Reciclavel/Organico" autofocus required />
-                                </div>
-
-                                <div class="form-group">
-                                    <h6>Descrição(Estado do Material)</h6>
-                                    <input type="text" name="DESCRICAO" id="descMaterial" class="form-control"
-                                        placeholder="Ex: 300g de papelão amassado" autofocus required />
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="btn-cadasMaterial">
-                                        <button id="adicionar" type="submit" name="ADD" value="ADD"
-                                            class="btn btn-info btn-md">
-                                            Adicionar
-                                        </button>
+                                    <div class="form-group">
+                                        <h6 class="titleInput">Nome do Material</h6>
+                                        <input type="text" name="NOME" id="nameMaterial" class="form-control"
+                                            placeholder="Ex: papelão, copo de vidro, pilha, garrafa pet" autofocus
+                                            required />
                                     </div>
-                                    <!--  <label for="remember-me" class="text-info"><span>Recuperar Acesso</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label> -->
-                                </div>
+                                    <div class="form-group">
+                                        <h6 class="titleInput">Especificação do material</h6>
+                                        <input type="text" name="ID_TIPO_MATERIAL" id="specifMaterial"
+                                            class="form-control" placeholder="Reciclavel/Organico" autofocus required />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h6>Descrição(Estado do Material)</h6>
+                                        <input type="text" name="DESCRICAO" id="descMaterial" class="form-control"
+                                            placeholder="Ex: 300g de papelão amassado" autofocus required />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="btn-cadasMaterial">
+                                            <button id="adicionar" type="submit" name="ADD" value="ADD"
+                                                class="btn btn-info btn-md">
+                                                Adicionar
+                                            </button>
+                                        </div>
+                                        <!--  <label for="remember-me" class="text-info"><span>Recuperar Acesso</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label> -->
+                                    </div>
                             </form>
                         </div>
                     </div>
@@ -91,34 +89,5 @@
             <div class="t-center">© 2022 ADS FATEC</div>
         </div>
     </body>
-    <script type="text/javascript">
-        let input = document.getElementById("pass"),
-            i = document.getElementById("eye");
-        i.addEventListener("click", function () {
-            if (input.type == "password") {
-                input.type = "text";
-                this.style.opacity = "1";
-            } else {
-                input.type = "password";
-                this.style.opacity = ".3";
-            }
-        });
-    </script>
-    <!-- 
-    <body>
-       <div class="container"/>
-        
-        <div id="cadasMaterial">
-            <h1>cadasMaterial</h1>
-                <form name="cadasMaterial" method="post">
-                    <input type="email" name="EMAIL" value="" maxlength="256" placeholder="Email"> <br>
-                    <input type="password" name="SENHA" value="" placeholder="Senha"> <br>
-            
-            <button type="submit" name="ENTRAR" value="Entrar" formaction="menu.jsp">Entrar</button><br>
-            <button type="submit" name="CADASTRAR" value="Cadastrar" formaction="cadastro.jsp">Cadastrar</button>
-        </form>
-        </div>
-    </body>
-    -->
 
     </html>

@@ -103,9 +103,9 @@
                             <i class="fas fa-calculator"></i>  Exemplo Dropdown
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Dropdown</a>
-                            <a class="dropdown-item" href="#">Dropdown</a>
-                            <a class="dropdown-item" href="#">Dropdown</a>
+                            <a class="dropdown-item" href="../material/inserirMaterial.jsp">Cadastrar Material</a>
+                            <a class="dropdown-item" href="../transporte/inserirTransporte.jsp">Cadastrar Veículo</a>
+                            <a class="dropdown-item" href="../coleta/menu.jsp">Telas de Coleta</a>
                         </div>
                     </li>
 
