@@ -86,7 +86,7 @@
                             <i class="fas fa-calculator"></i>  Controle de Acesso
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../material/inserirMaterial.jsp">Material</a>
+                            <a class="dropdown-item" href="../material/menu.jsp">Material</a>
                             <a class="dropdown-item" href="../transporte/menu.jsp">Veículo</a>
                             <a class="dropdown-item" href="../coleta/menu.jsp">Coleta</a>
                         </div>
