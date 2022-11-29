@@ -1,5 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <html>
     <!-- Implementações estilos CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -19,38 +18,57 @@
                     <div id="login-column" class="col-md-6">
                         <div id="login-box" class="col-md-12">
                             <h3 class="text-center text-white pt-5">Cadastro</h3>
-                               
                             <form id="login-form" name="cadastrarUsuario" class="form" action="validaCadastrarUsuario.jsp" method="post">
+                                   <h2 class="">Usuário</h2>
                                     <div class="form-group">  
                                         <input type="text" name="IDENTIFICACAO"  id="identificacao" class="form-control" placeholder="CPF/CNPJ" autofocus required>
                                     </div>
-                                    
-                                    <div class="form-group">                             
-                                        <input type="text" name="NOME" id="nome" class="form-control" maxlenght="256px" placeholder="Nome" autofocus required>
-                                       
-                                    </div>
-                                    
-                                    <div class="form-group">                             
-                                        <input type="number" name="TIPO" id="" class="form-control" placeholder="Tipo" autofocus required>
+                                    <div class="form-group">  
                                         
+                                        <input type="text" name="NOME" id="nome" class="form-control" maxlenght="256px" placeholder="Nome" autofocus required>
+                                    </div>
+                                    <div class="form-group">                             
+                                        <select class="form-control" id="opcoes" name="TIPO">
+                                            <option>Selecione um tipo</option>
+                                            <option class="" value="">Usuário</option>
+                                            <option class="" value="">Administrador</option>
+                                            <option class="" value="">Coletador</option>
+                                        </select>
                                     </div><!-- comment -->
-                                    
                                     <div class="form-group">                             
                                         <input type="email" name="LOGIN" id="email" class="form-control" placeholder="Email" autofocus required> 
                                     </div>
-                                    
                                     <div class="form-group">                             
                                         <input type="password" name="SENHA" id="pass" class="form-control" maxlength="50px" placeholder="Senha" autofocus required>
                                         <i id="eye" class="fas fa-eye"></i>
                                     </div>
                                     
+                                    <h2 class="">Logradouro</h2>
+                                    <div class="form-group">                             
+                                        <input type="text" name="CEP" id="cep" class="form-control" maxlenght="10px" placeholder="CEP" autofocus required>
+                                    </div>
+ 
+                                    <div class="form-group">                             
+                                        <input type="text" name="NOME_REGIAO" id="endereco" class="form-control" placeholder="Nome da região" autofocus required>
+                                    </div>
+                           
+                                     <div class="form-group">                             
+                                         <textarea type="text" name="DESCRICAO" id="complemento" class="form-control" maxlenght="120px" placeholder="Adicione a zona da região" autofocus required></textarea>
+                                    </div>
+
                                     <div class="form-group">
                                         <div class="btn-login">       
                                             <button id="cadastrar" type="" name="Enviar" value="OK" class="btn btn-info btn-md" >FINALIZAR</button><br>
                                             <label  class="text-info"><a href="login.jsp">Voltar</a></label>        
-                                            </div>    
-                                      </div>
+                                        </div>    
+                                    </div>
                                 </form>
+                            <!--
+                            <div id="opCadastro" class="">
+                                <li><a href="">Cadastro Usuário</a></li>
+                                <li><a href="">Cadastro Logradouro</a></li>
+                            </div>
+                            -->
                            </div>
                       </div>
                  </div>
@@ -59,7 +77,6 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="padding-top: 10%;">
            <path fill="#808080" fill-opacity="1" d="M0,160L60,160C120,160,240,160,360,165.3C480,171,600,181,720,170.7C840,160,960,128,1080,117.3C1200,107,1320,117,1380,122.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
         </svg>
-        
         <div class="rodape pn">
             <div class="t-center">
                 © 2022 ADS FATEC 
@@ -78,6 +95,32 @@
                     } 
                 });
         </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+	    $("#cep").mask("99.999-999");
+        });
+        </script>
+        <script>
+	    $("#cep").blur(function(){
+	    // Remove tudo o que não é número para fazer a pesquisa
+	    var cep = this.value.replace(/[^0-9]/, "");
+
+	    if(cep.length != 8){
+		return false;
+	    }
+            var url = "https://viacep.com.br/ws/"+cep+"/json/";
+	    
+            $.getJSON(url, function(dadosRetorno){
+		try{
+		// Preenche os campos de acordo com o retorno da pesquisa
+		$("#endereco").val(dadosRetorno.logradouro);
+		$("#cidade").val(dadosRetorno.localidade);
+		}catch(ex){}
+	        });
+	    });
+	</script>
+        
+        
         <script>
             document.getElementById('identificacao').addEventListener('input', function(e) {
                 let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
@@ -94,6 +137,7 @@
                 console.log('Sem formatação: ' + valor);
             });
         </script>
+        
  </body>
 </html> 
 
