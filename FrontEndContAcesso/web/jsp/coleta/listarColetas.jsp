@@ -36,16 +36,23 @@ List<Coleta> colSai = contCol.listarTodos();
 		<% for(Coleta col : colSai) { %>
 			<div class="col-sm-6">
 			<div class="card">
-				<form action="validaBuscarColeta.jsp">
-					<div class="card-body">
-						<h5 class="card-title">Id da Coleta: <%= col.getId() %></h5>
-						<p class="card-text"> O usuário: <%= new ControllerPessoa().buscar(new Pessoa(new ControllerUsuario().buscar(new Usuario(col.getIdUsuarioR())).getId_pessoa())).getNome() %> requeriu
-						uma entrega do CEP: <%= new ControllerLogradouro().buscar(new Logradouro(col.getIdLogradouroR())).getCep() %> para o CEP: <%= new ControllerLogradouro().buscar(new Logradouro(col.getIdLogradouroE())).getCep() %>
-						atribuida para o usuário: <%= new ControllerPessoa().buscar(new Pessoa(new ControllerUsuario().buscar(new Usuario(col.getIdUsuarioE())).getId_pessoa())).getNome() %></p>
-						<input name="ID" value="<%= col.getId() %>" style="display: none"/>
-						<button type="submit" class="btn btn-primary">Detalhes</button>
+				<div class="card-body">
+					<h5 class="card-title">Id da Coleta: <%= col.getId() %></h5>
+					<p class="card-text"> O usuário: <%= new ControllerPessoa().buscar(new Pessoa(new ControllerUsuario().buscar(new Usuario(col.getIdUsuarioR())).getId_pessoa())).getNome() %> requeriu
+					uma entrega do CEP: <%= new ControllerLogradouro().buscar(new Logradouro(col.getIdLogradouroR())).getCep() %> para o CEP: <%= new ControllerLogradouro().buscar(new Logradouro(col.getIdLogradouroE())).getCep() %>
+					atribuida para o usuário: <%= new ControllerPessoa().buscar(new Pessoa(new ControllerUsuario().buscar(new Usuario(col.getIdUsuarioE())).getId_pessoa())).getNome() %></p>
+					
+					<div class="d-flex">
+						<form action="validaConcluirColeta.jsp" style="margin-right: 40px">
+							<input name="ID" value="<%= col.getId() %>" style="display: none"/>
+							<button type="submit" class="btn btn-primary">Concluir</button>
+						</form>
+						<form action="validaBuscarColeta.jsp">
+							<input name="ID" value="<%= col.getId() %>" style="display: none"/>
+							<button type="submit" class="btn btn-primary">Detalhes</button>
+						</form>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 		<% } %>
