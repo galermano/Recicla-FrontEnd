@@ -32,15 +32,18 @@ h2 {
 #login .container #login-row #login-column #login-box {
   margin-top: 85px;
   max-width: 600px;
-  margin-left: auto;
+  margin-left: 180px;
   margin-right: auto;
   width: 400px;
-  height: 1030px;
   background-color: #EAEAEA;
   border-radius: 14px;
   border: none;
   box-shadow:  0 4px 0.5em 0 #bdbebd!important;
   color: grey;
+}
+
+.container {
+  display: flex;   
 }
 
 #login .container #login-row #login-column #login-box #login-form {
@@ -228,4 +231,16 @@ button:hover {
 .pn {
   padding: 0 4% .5em 4%;
     padding-top: 0px;
+}
+
+@media (max-width:992px) {
+    #login .container #login-row #login-column #login-box {
+        margin-left: 100px;
+    }
+}
+
+@media (max-width:600px) {
+    #login .container #login-row #login-column #login-box {
+        margin-left: 80px;
+    }
 }
