@@ -1,5 +1,3 @@
-<%@page import="com.recicla.contAcesso.controller.ControllerUsuario"%>
-<%@page import="com.recicla.contAcesso.model.bean.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -7,10 +5,10 @@
     ControllerUsuario contUsu = new ControllerUsuario();
     Usuario usuSaida = contUsu.buscar(usuario);
 %>
+
 <!DOCTYPE html>
 <html>
     <!-- Implementações estilos CSS -->
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
@@ -72,9 +70,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <title>Menu</title>
+    <title>Menu/Inicio</title>
 
     <body>
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Reciclagem</a>
 
@@ -88,24 +87,44 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-calculator"></i>  Controle de Acesso
+                            <i class="fas fa-recycle"></i>  Material
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          
-                           
-                            <a class="dropdown-item" href="../material/menu.jsp">Material</a>
-                            
-                            
-                            <%if(usuSaida.getId_acesso() == 2 || usuSaida.getId_acesso() == 4){ %>
-                            <a class="dropdown-item" href="../transporte/menu.jsp">Veículo</a>
-                            <% } %>
-                            
-                            <%if(usuSaida.getId_acesso() == 1 || usuSaida.getId_acesso() == 4){%>
-                            <a class="dropdown-item" href="../coleta/menu.jsp">Coleta</a>
-                            <% } %>
+                            <a class="dropdown-item" href="buscarMaterial.jsp">Buscar Material</a>
+                            <a class="dropdown-item" href="validaConsultarMaterial.jsp">Listar Material</a>
+                            <a class="dropdown-item" href="excluirMaterial.jsp">Excluir Material</a>
+                            <a class="dropdown-item" href="inserirTipoMaterial.jsp">Cadastrar Tipo-Material</a>
+                            <a class="dropdown-item" href="buscarTipoMaterial.jsp">Buscar Tipo-Material</a>
+                            <a class="dropdown-item" href="validaConsultarTipoMaterial.jsp">Listar Tipo-Material</a>
+                            <a class="dropdown-item" href="excluirTipoMaterial.jsp">Excluir Tipo-Material</a>
                         </div>
                     </li>
-
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-car"></i>  Veículo
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../transporte/inserirTransporte.jsp">Cadastrar Transporte </a>
+                            <a class="dropdown-item" href="../transporte/buscarTransporte.jsp">Buscar Transporte</a>
+                            <a class="dropdown-item" href="../transporte/excluirTransporte.jsp">Excluir Transporte</a>
+                            <a class="dropdown-item" href="../transporte/alterarTransporte.jsp">Alterar Transporte</a>
+                            <a class="dropdown-item" href="../transporte/listarTransportes.jsp">Listar Transporte</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-trash"></i>  Coleta
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../coleta/agendarColeta.jsp">Agendar Coleta</a>
+                            <a class="dropdown-item" href="../coleta/concluirColeta.jsp">Concluir Coleta</a>
+                            <a class="dropdown-item" href="../coleta/excluirColeta.jsp">Excluir Coleta</a>
+                            <a class="dropdown-item" href="../coleta/buscarColeta.jsp">Buscar Coleta</a>
+                            <a class="dropdown-item" href="../coleta/listarColetas.jsp">Listar Coleta</a>
+                            <a class="dropdown-item" href="../logradouro/listarLogradouros.jsp">Listar Logradouros</a>
+                            <a class="dropdown-item" href="../logradouro/cadastrarLogradouro.jsp">Cadastrar Logradouro</a>
+                        </div>
+                    </li>
                 </ul>
                 <!-- 
                 <form class="form-inline my-2 my-lg-0">
@@ -121,15 +140,12 @@
                         <div class="dropdown-menu drop2" aria-labelledby="navbarDropdown">
 
                             <a class="dropdown-item" href="editarPerfil.jsp">Editar Perfil</a>
+                            <a class="dropdown-item" href="#">Configurações</a>                    
                             <a class="dropdown-item" href="login.jsp" style="color: red;">Sair</a> 
                         </div>
                     </li>
                 </div>
-
             </div>
         </nav>
-         <h1><% out.print(usuSaida.getLogin());%></h1>
-         <h1><% out.print(usuSaida.getAcesso().getTipo());%></h1>
-         <h1><% out.print(usuSaida.getAcesso().getId());%></h1>
     </body>
 </html>
