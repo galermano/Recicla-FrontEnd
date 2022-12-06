@@ -58,7 +58,7 @@
                                     			<option value="<%= tip.getId() %>"> <%= tip.getNome() %></option>
                                     		<% } %>
                                         </select>
-                                        
+                                    </div>
                                         <div class="form-group">                             
                                         <select class="form-control" id="opcoes" name="USUARIO">
                                             <option>Selecione um Usuario</option>
@@ -68,7 +68,7 @@
                                     			<option value="<%= usu.getId() %>"> <%= p.getNome() %> (ID: <%= usu.getId() %>)</option>
                                     		<% } %>
                                         </select>
-                                        
+                                        </div>
                                         
                                     </div><!-- comment -->
                                     

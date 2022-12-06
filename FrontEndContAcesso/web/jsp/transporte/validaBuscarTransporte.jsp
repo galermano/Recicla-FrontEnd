@@ -69,12 +69,12 @@ Veiculo veiSai = contCol.buscar(newCol);
                                         <select class="form-control" autofocus required id="opcoes" name="TIPO" disabled="disabled">
                                             <option><%= tpvei.getNome() %> </option>
                                         </select>
-                                        
+                                    </div> 
                                         <div class="form-group">                             
                                         <select class="form-control" id="opcoes" name="USUARIO" disabled="disabled">
                                             <option><%= new ControllerPessoa().buscar(new Pessoa(usu.getId_pessoa())).getNome()  %></option>
                                         </select>
-                                        
+                                        </div>
                                         
                                     </div><!-- comment -->
                                     

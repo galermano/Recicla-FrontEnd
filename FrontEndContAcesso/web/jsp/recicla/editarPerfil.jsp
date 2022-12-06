@@ -140,12 +140,14 @@
                                     <input type="text" name="NOME" id="nome" class="form-control" maxlenght="256px" value="<%= usuSaida.getPessoa().getNome()%>" autofocus required>
                                 </div>
                                 <div class="form-group">                             
-                                    <select class="form-control" id="opcoes" name="TIPO">
+                                   
+                                    <select disabled class="form-control" id="opcoes" name="TIPO">  
                                         <option><p><%= usuSaida.getAcesso().getTipo() %></p></option>
                                         <option class="" >Usuario</option>
                                         <option class="" >Administrador</option>
                                         <option class="" >Coletador</option>
                                     </select>
+                                        
                                 </div><!-- comment -->
                                 <div class="form-group">                             
                                     <input type="email" name="LOGIN" id="email" class="form-control" value="<%= usuSaida.getLogin()%>" autofocus required> 
@@ -164,7 +166,7 @@
                                 </div>
 
                                 <div class="form-group">                             
-                                    <textArea type="text" name="DESCRICAO" id="complemento" class="form-control" maxlenght="120px"  placeholder="<%= usuSaida.getPessoa().getLogradouro().getRegiao().getDescricao() %>" autofocus required></textarea>
+                                    <textArea type="text" name="DESCRICAO" id="complemento" class="form-control" maxlenght="120px"  placeholder="" autofocus required> <%= usuSaida.getPessoa().getLogradouro().getRegiao().getDescricao() %> </textarea>
                                 </div>
 
                                 <div class="form-group">

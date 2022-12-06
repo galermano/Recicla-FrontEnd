@@ -1,6 +1,12 @@
+<%@page import="com.recicla.contAcesso.controller.ControllerUsuario"%>
+<%@page import="com.recicla.contAcesso.model.bean.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
+<%
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    ControllerUsuario contUsu = new ControllerUsuario();
+    Usuario usuSaida = contUsu.buscar(usuario);
+%>
 <!DOCTYPE html>
 <html>
     <!-- Implementações estilos CSS -->
@@ -69,7 +75,6 @@
     <title>Menu</title>
 
     <body>
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Reciclagem</a>
 
@@ -86,9 +91,18 @@
                             <i class="fas fa-calculator"></i>  Controle de Acesso
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          
+                           
                             <a class="dropdown-item" href="../material/menu.jsp">Material</a>
+                            
+                            
+                            <%if(usuSaida.getId_acesso() == 2 || usuSaida.getId_acesso() == 4){ %>
                             <a class="dropdown-item" href="../transporte/menu.jsp">Veículo</a>
+                            <% } %>
+                            
+                            <%if(usuSaida.getId_acesso() == 1 || usuSaida.getId_acesso() == 4){%>
                             <a class="dropdown-item" href="../coleta/menu.jsp">Coleta</a>
+                            <% } %>
                         </div>
                     </li>
 
@@ -107,7 +121,6 @@
                         <div class="dropdown-menu drop2" aria-labelledby="navbarDropdown">
 
                             <a class="dropdown-item" href="editarPerfil.jsp">Editar Perfil</a>
-                            <a class="dropdown-item" href="#">Configurações</a>                    
                             <a class="dropdown-item" href="login.jsp" style="color: red;">Sair</a> 
                         </div>
                     </li>
@@ -115,5 +128,8 @@
 
             </div>
         </nav>
+         <h1><% out.print(usuSaida.getLogin());%></h1>
+         <h1><% out.print(usuSaida.getAcesso().getTipo());%></h1>
+         <h1><% out.print(usuSaida.getAcesso().getId());%></h1>
     </body>
 </html>

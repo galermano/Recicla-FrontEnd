@@ -60,7 +60,7 @@
 //    int id_acesso = 0;
     int id_usuario = usuSaida.getId();
 
-    if (tipo.toLowerCase().equals("coletador")) {
+    if (usuSaida.getAcesso().getTipo().equals("coletador")) {
 //        Modulo moduloSaida = new Modulo(4);
 //        DaoModulo daoMod = new DaoModulo();
 //        moduloSaida = daoMod.buscar(moduloSaida);
@@ -76,7 +76,7 @@
         ControllerUsuario contCol = new ControllerUsuario();
         Usuario usuAlterado = contCol.alterar(newCol);
 
-    } else if (tipo.toLowerCase().equals("usuario")) {
+    } else if (usuSaida.getAcesso().getTipo().equals("usuario")) {
 //        Modulo moduloSaida = new Modulo(1);
 //        DaoModulo daoMod = new DaoModulo();
 //        moduloSaida = daoMod.buscar(moduloSaida);
@@ -110,7 +110,7 @@
 
     }
 
-    String url = "editarPerfil.jsp";
+    String url = "menu.jsp";
     response.sendRedirect(url);
 
 
