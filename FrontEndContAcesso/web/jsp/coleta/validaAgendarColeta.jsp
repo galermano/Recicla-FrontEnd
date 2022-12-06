@@ -29,6 +29,7 @@
     String matsid = request.getParameter("MATSID");
     
     Date data_inicio = new Date();
+    
 
     String[] ids = matsid.split(",");
     
@@ -40,9 +41,12 @@
 	
     
     for(String idM : ids){
-    	Material mat = contMat.buscar(new Material(Integer.parseInt(idM)));
-    	mat.setId_coleta(colSai.getId());
-    	contMat.alterar(mat);
+    	if(idM != ""){
+    		System.out.println(idM);
+        	Material mat = contMat.buscar(new Material(Integer.parseInt(idM)));
+        	mat.setId_coleta(colSai.getId());
+        	contMat.alterar(mat);
+    	}
     }
     
     
