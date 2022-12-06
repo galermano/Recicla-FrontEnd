@@ -1,3 +1,5 @@
+<%@page import="com.recicla.contAcesso.controller.ControllerUsuario"%>
+<%@page import="com.recicla.contAcesso.model.bean.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -85,11 +87,13 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#"><i class="fas fa-house-blank"></i>Início<span class="sr-only">(current)</span></a>
                     </li>
+                    <%if (usuSaida.getId_acesso() == 4) { %>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-recycle"></i>  Material
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="inserirMaterial.jsp">Cadastrar Material</a>
                             <a class="dropdown-item" href="buscarMaterial.jsp">Buscar Material</a>
                             <a class="dropdown-item" href="validaConsultarMaterial.jsp">Listar Material</a>
                             <a class="dropdown-item" href="excluirMaterial.jsp">Excluir Material</a>
@@ -99,30 +103,74 @@
                             <a class="dropdown-item" href="excluirTipoMaterial.jsp">Excluir Tipo-Material</a>
                         </div>
                     </li>
+                    <% } %>
+
+
+                    <%if (usuSaida.getId_acesso() == 2 || usuSaida.getId_acesso() == 3 || usuSaida.getId_acesso() == 4) { %>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-car"></i>  Veículo
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <%if (usuSaida.getId_acesso() == 2 || usuSaida.getId_acesso() == 3 || usuSaida.getId_acesso() == 4) { %>
                             <a class="dropdown-item" href="../transporte/inserirTransporte.jsp">Cadastrar Transporte </a>
+                            <% } %>
+
+                            <%if (usuSaida.getId_acesso() == 4) { %>
                             <a class="dropdown-item" href="../transporte/buscarTransporte.jsp">Buscar Transporte</a>
+                            <% } %>
+
+                            <%if (usuSaida.getId_acesso() == 4) { %>
                             <a class="dropdown-item" href="../transporte/excluirTransporte.jsp">Excluir Transporte</a>
+                            <% } %>
+
+                            <%if (usuSaida.getId_acesso() == 2 || usuSaida.getId_acesso() == 3 || usuSaida.getId_acesso() == 4) { %>
                             <a class="dropdown-item" href="../transporte/alterarTransporte.jsp">Alterar Transporte</a>
+                            <% } %>
+
+                            <%if (usuSaida.getId_acesso() == 2 || usuSaida.getId_acesso() == 3 || usuSaida.getId_acesso() == 4) { %>
                             <a class="dropdown-item" href="../transporte/listarTransportes.jsp">Listar Transporte</a>
+                            <% } %>
+
                         </div>
                     </li>
+                    <% } %>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-trash"></i>  Coleta
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <%if (usuSaida.getId_acesso() == 1 || usuSaida.getId_acesso() == 4) { %>
                             <a class="dropdown-item" href="../coleta/agendarColeta.jsp">Agendar Coleta</a>
+                            <% } %>
+
+                            <%if (usuSaida.getId_acesso() == 1 || usuSaida.getId_acesso() == 4) {%>
                             <a class="dropdown-item" href="../coleta/concluirColeta.jsp">Concluir Coleta</a>
+                            <% }%>
+
+                            <%if (usuSaida.getId_acesso() == 4) {%>
                             <a class="dropdown-item" href="../coleta/excluirColeta.jsp">Excluir Coleta</a>
+                            <% }%>
+
+                            <%if (usuSaida.getId_acesso() == 4) {%>
                             <a class="dropdown-item" href="../coleta/buscarColeta.jsp">Buscar Coleta</a>
+                            <% }%>
+
+
+                            <%if (usuSaida.getId_acesso() == 1 || usuSaida.getId_acesso() == 4 || usuSaida.getId_acesso() == 3) {%>
                             <a class="dropdown-item" href="../coleta/listarColetas.jsp">Listar Coleta</a>
+                            <% }%>
+
+                            <%if (usuSaida.getId_acesso() == 4) {%>
                             <a class="dropdown-item" href="../logradouro/listarLogradouros.jsp">Listar Logradouros</a>
+                            <% }%>
+
+                            <%if (usuSaida.getId_acesso() == 4) {%>
                             <a class="dropdown-item" href="../logradouro/cadastrarLogradouro.jsp">Cadastrar Logradouro</a>
+                            <% }%>
+
                         </div>
                     </li>
                 </ul>
