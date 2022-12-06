@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="com.recicla.material.model.bean.Material"%>
+<%@page import="com.recicla.material.controller.ControllerMaterial"%>
 <%@page import="com.recicla.contAcesso.controller.ControllerPessoa"%>
 <%@page import="com.recicla.contAcesso.model.bean.Pessoa"%>
 <%@page import="com.recicla.util.model.bean.Status"%>
@@ -43,9 +46,9 @@ Coleta colSai = contCol.buscar(newCol);
 	    <body>
         <div id="login">
             <div class="container">
-                <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-row" class="row justify-content-center align-items-center h-auto" style="height: 80vh">
                     <div id="login-column" class="col-md-6">
-                        <div id="login-box" class="col-md-12">
+                        <div id="login-box" class="col-md-12" style="height: auto">
                             <h3 class="text-center text-white pt-5"><br>Agendar Coleta</h3>
 
 							<%                                     
@@ -60,6 +63,11 @@ Coleta colSai = contCol.buscar(newCol);
                             
                             ControllerStatus contSta = new ControllerStatus();
                             Status sta = contSta.buscar(new Status(colSai.getIdStatus()));
+                            
+                            ControllerMaterial contMat = new ControllerMaterial();
+                            Material matBusca = new Material(" ");
+                            matBusca.setId_coleta(colSai.getId());
+                            List<Material> materiais = contMat.listarPorColeta(matBusca);
                             %>
 
                             <form id="login-form" class="form" action="menu.jsp" method="post">
@@ -106,7 +114,12 @@ Coleta colSai = contCol.buscar(newCol);
                                     <input type="number" value="<%= colSai.getQuantidade() %>" name="QUANT" id="quantidade" class="form-control" placeholder="Quantidade" autofocus required>
                                 </div>
 
-                                
+                                <div class="form-group">
+                                	<p id="MATSADD">Materiais Adicionados: <% for (Material mat : materiais){ %> 
+                                					<%= mat.getDescricao() %> (ID: <%= mat.getId() %>)
+                                											<%} %>
+                                	</p>
+                                </div>
 
                                 <div class="form-group">
 
