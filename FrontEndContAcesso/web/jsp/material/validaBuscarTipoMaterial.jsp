@@ -1,16 +1,16 @@
-<%@page import="com.recicla.material.controller.ControllerMaterial"%>
-<%@page import="com.recicla.material.model.bean.Material"%>
+<%@page import="com.recicla.material.controller.ControllerTipoMaterial"%>
+<%@page import="com.recicla.material.model.bean.TipoMaterial"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 
 
 <%
 
-    int id_material = Integer.parseInt(request.getParameter("ID"));
+    int id_tipo_material = Integer.parseInt(request.getParameter("ID"));
 
-    Material materialEntrada = new Material(id_material);
-    ControllerMaterial contMaterial = new ControllerMaterial();
-    Material matSaida = contMaterial.buscar(materialEntrada);
+    TipoMaterial materialEntrada = new TipoMaterial(id_tipo_material);
+    ControllerTipoMaterial contTipoMaterial = new ControllerTipoMaterial();
+    TipoMaterial matSaida = contTipoMaterial.buscar(materialEntrada);
 
 
 %>
@@ -38,43 +38,36 @@
                 <div id="login-row" class="row justify-content-center align-items-center">
                     <div id="login-column" class="col-md-6">
                         <div id="login-box" class="col-md-12">
-                            <h3 class="text-center text-white pt-5"><br>Buscar Material</h3>
+                            <h1 class="text-center text-white pt-5">Buscar Material</h1>
 
 
 
                             <form id="login-form" class="form" action="menu.jsp" method="post">
 
-                                <h2>Material</h2>
+                                <h2>Tipo de material</h2>
+
 
                                 <div class="form-group">
-                                    <h6 class="titleInput">Nome do Material</h6>
-                                    <input type="text" name="NOME" id="nameMaterial" class="form-control" value="<%= matSaida.getNome()%>"
-                                           placeholder="Ex: papelão, copo de vidro, pilha, garrafa pet" autofocus
-                                           required readonly />
+                                    <h6 class="titleInput">Nome do material</h6>
+                                    <input type="text" name="ESPECIFICACAO" id="specifMaterial" value="<%= matSaida.getEspecificacao()%>" class="form-control" autofocus required readonly/>
                                 </div>
+
+
+                                <div class="form-group">
+                                    <h6 class="titleInput">Descrição do Material</h6>
+                                    <input type="text" name="NOME" id="nameMaterial" class="form-control" value="<%= matSaida.getNome()%>" autofocus required readonly />
+                                </div>
+
                                 <div class="form-group">
                                     <h6 class="titleInput">Especificação do material</h6>
-                                    <input type="text" name="ID_TIPO_MATERIAL" id="specifMaterial"
-                                           value="<%= matSaida.getTipoMat().getEspecificacao()%>"     class="form-control" placeholder="Reciclavel/Organico" autofocus required readonly/>
+                                    <input type="text" name="DESCRICAO" id="descMaterial" class="form-control" value="<%= matSaida.getDescricao()%>" autofocus required readonly/>
                                 </div>
 
                                 <div class="form-group">
-                                    <h6>Descrição(Estado do Material)</h6>
-                                    <input type="text" name="DESCRICAO" id="descMaterial" class="form-control"
-                                           value="<%= matSaida.getDescricao()%>"    placeholder="Ex: 300g de papelão amassado" autofocus required readonly/>
-                                </div>
-
-
-                                <div class="form-group">
-
                                     <div class="btn-login">
-
                                         <button id="entrar" type="submit" name="ENVIAR" value="ENVIAR" class="btn btn-info btn-md" >Voltar</button><br>
                                     </div>  
-
-
                                 </div>
-
                             </form>
                         </div>
                     </div>
