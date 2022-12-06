@@ -4,7 +4,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    String nome = request.getParameter("NOME");
+    String nome = "A";
     Material matEntrada = new Material(nome);
     ControllerMaterial materialCont = new ControllerMaterial();
     List<Material> matSaida = materialCont.listar(matEntrada);
@@ -23,7 +23,7 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <form action="validaBuscarColeta.jsp">
-                            <div class="card-body">
+                            <div style="padding:3%" class="card-body">
                                 <h5 class="card-title">Id Material:<%=listaMaterial.getId()%></h5>
                                 <h2 class="card-title">Nome material: <%=listaMaterial.getNome()%></h2>
                                 <h2 class="card-title">Tipo Material: <%=listaMaterial.getTipoMat().getNome() %></h2>
