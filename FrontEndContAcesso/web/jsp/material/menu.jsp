@@ -21,7 +21,7 @@
                 <div class="center-align divider"></div>
             </div>
             <div style="text-align: center" class="section">
-                <a style="font-size: 42pt" class="center-align" href="validaConsultarMaterial.jsp">
+                <a style="font-size: 42pt" class="center-align" href="consultarMaterial.jsp">
                     Listar material
                 </a>
                 <div class="center-align divider"></div>

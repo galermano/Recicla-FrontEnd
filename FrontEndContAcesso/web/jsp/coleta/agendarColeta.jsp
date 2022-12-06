@@ -45,9 +45,9 @@
 
                 mats.value = "";
 
-                matsadd.insertAdjacentText(`${matstext}, `);
+                matsadd.insertAdjacentText('beforeend' ,matstext+', ');
 
-                matsid.value = `${matsidvalue},${matvalue}`;                 
+                matsid.value = matsidvalue+','+matvalue;                 
             }
         
         </script>
@@ -76,9 +76,9 @@
                             status.addAll(stas);
 
                             ControllerMaterial contMat = new ControllerMaterial();
-                            List<Material> mates = contMat.listarTodos();
-                            ArrayList<Material> materiais = new ArrayList<Material>();
-                            materiais.addAll(mates);
+                            List<Material> materiais = contMat.listarTodos();
+                            //ArrayList<Material> materiais = new ArrayList<Material>();
+                            //materiais.addAll(mates);
                             %>
 
                             <form id="login-form" class="form" action="validaAgendarColeta.jsp" method="post">
@@ -151,7 +151,7 @@
                                 
                                 	
                                 	
-                                	<div onclick="addMaterial()"><button class="btn btn-primary" >Adicionar</button></div>
+                                	<div onclick="addMaterial()"><span class="btn btn-primary" >Adicionar</span></div>
                                 
                                 	<p id="MATSADD">Materiais Adicionados: </p>
 
