@@ -44,32 +44,24 @@
 
                             <form id="login-form" class="form" action="menu.jsp" method="post">
 
-                                <div class="materialType">
-                                    <label for="typeMatt">
-                                        <p class="titleType">Tipo de material:</p>
-                                    </label>
-                                    <select name="ID_TIPO_MATERIAL" class="typeMat" id="typeMat">
-                                        <option value="#"><p><%= matSaida.getTipoMat().getNome()%></p></option>
-                                    </select>
-                                </div>
-
+                                <h2>Material</h2>
 
                                 <div class="form-group">
                                     <h6 class="titleInput">Nome do Material</h6>
-                                    <input type="text" name="NOME" id="nameMaterial" class="form-control" value="<%= matSaida.getNome() %>"
+                                    <input type="text" name="NOME" id="nameMaterial" class="form-control" value="<%= matSaida.getNome()%>"
                                            placeholder="Ex: papelão, copo de vidro, pilha, garrafa pet" autofocus
-                                           required />
+                                           required readonly />
                                 </div>
                                 <div class="form-group">
                                     <h6 class="titleInput">Especificação do material</h6>
                                     <input type="text" name="ID_TIPO_MATERIAL" id="specifMaterial"
-                                      value="<%= matSaida.getTipoMat().getEspecificacao() %>"     class="form-control" placeholder="Reciclavel/Organico" autofocus required />
+                                           value="<%= matSaida.getTipoMat().getEspecificacao()%>"     class="form-control" placeholder="Reciclavel/Organico" autofocus required readonly/>
                                 </div>
 
                                 <div class="form-group">
                                     <h6>Descrição(Estado do Material)</h6>
                                     <input type="text" name="DESCRICAO" id="descMaterial" class="form-control"
-                                       value="<%= matSaida.getDescricao() %>"    placeholder="Ex: 300g de papelão amassado" autofocus required />
+                                           value="<%= matSaida.getDescricao()%>"    placeholder="Ex: 300g de papelão amassado" autofocus required readonly/>
                                 </div>
 
 
