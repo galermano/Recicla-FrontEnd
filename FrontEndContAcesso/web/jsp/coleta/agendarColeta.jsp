@@ -9,31 +9,31 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+         pageEncoding="ISO-8859-1"%>
 <%@page import="com.recicla.contAcesso.model.bean.Usuario"%>
 <%@page import="com.recicla.coleta.model.bean.Logradouro"%>
 <%@page import="com.recicla.coleta.controller.ControllerLogradouro"%>
 <%@page import="com.recicla.contAcesso.controller.ControllerUsuario"%>
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Implementa��es estilos CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
-    <link href="../../css/agendarColeta.css" rel="stylesheet">
-    <!-- Implementa��es SCRIPTS, PLUGINS e ETC -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <%@include file="../../inc/materalizeWeb.inc" %>
+    <head>
+        <!-- Implementa��es estilos CSS -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
+        <link href="../../css/agendarColeta.css" rel="stylesheet">
+        <!-- Implementa��es SCRIPTS, PLUGINS e ETC -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+        <%@include file="../../inc/materalizeWeb.inc" %>
 
-	<title>Agendar coleta</title>
-</head>
-<body>
-	    <body>
+        <title>Agendar coleta</title>
+    </head>
+    <body>
+    <body>
         <script type="text/javascript">
-            function addMaterial(){
+            function addMaterial() {
                 var mats = document.getElementById("mat");
                 var matsadd = document.getElementById("MATSADD");
                 var matsid = document.getElementById("MATSID");
@@ -41,15 +41,15 @@
                 var matvalue = mats.value;
                 var matstext = mats.options[mats.selectedIndex].text;
 
-                var matsidvalue = matsid.value
+                var matsidvalue = matsid.value;
 
                 mats.value = "";
 
                 matsadd.insertAdjacentText(`${matstext}, `);
 
-                matsid.value = `${matsidvalue},${matvalue}`;                 
-            }
-        
+                matsid.value = `${matsidvalue},${matvalue}`;
+                    }
+
         </script>
         <div id="login">
             <div class="container">
@@ -58,80 +58,80 @@
                         <div id="login-box" class="col-md-12">
                             <h3 class="text-center text-white pt-5"><br>Agendar Coleta</h3>
 
-							<%                                     
-							ControllerLogradouro contLog = new ControllerLogradouro();
-                            ControllerRegiao contReg = new ControllerRegiao();
-                            List<Logradouro> logs = contLog.listarTodos();
-                            ArrayList<Logradouro> logradouros = new ArrayList<Logradouro>();
-                            logradouros.addAll(logs);
-                            
-                            ControllerUsuario contUsu = new ControllerUsuario();
-                            List<Usuario> usus = contUsu.listarTodos();
-                            ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-                            usuarios.addAll(usus);
-                            
-                            ControllerStatus contSta = new ControllerStatus();
-                            List<Status> stas = contSta.listarTodos();
-                            ArrayList<Status> status = new ArrayList<Status>();
-                            status.addAll(stas);
+                            <%
+                                ControllerLogradouro contLog = new ControllerLogradouro();
+                                ControllerRegiao contReg = new ControllerRegiao();
+                                List<Logradouro> logs = contLog.listarTodos();
+                                List<Logradouro> logradouros = new ArrayList<>();
+                                logradouros.addAll(logs);
 
-                            ControllerMaterial contMat = new ControllerMaterial();
-                            List<Material> mates = contMat.listarTodos();
-                            ArrayList<Material> materiais = new ArrayList<Material>();
-                            materiais.addAll(mates);
+                                ControllerUsuario contUsu = new ControllerUsuario();
+                                List<Usuario> usus = contUsu.listarTodos();
+                                List<Usuario> usuarios = new ArrayList<>();
+                                usuarios.addAll(usus);
+
+                                ControllerStatus contSta = new ControllerStatus();
+                                List<Status> stas = contSta.listarTodos();
+                                List<Status> status = new ArrayList<>();
+                                status.addAll(stas);
+
+                                ControllerMaterial contMat = new ControllerMaterial();
+                                List<Material> mates = contMat.listarTodos();
+                                List<Material> materiais = new ArrayList<>();
+                                materiais.addAll(mates);
                             %>
 
                             <form id="login-form" class="form" action="validaAgendarColeta.jsp" method="post">
 
                                 <div class="form-group">
-                                	<label>Status</label>  
+                                    <label>Status</label>  
                                     <select name="STATUS" id="status" class="form-control" autofocus required>
-                                    <option value="#"> </option>
-                                    <% for(Status st : status) { %>
-                                    	<option value="<%= st.getId() %>"> <%= st.getNome() %></option>
-                                    <% } %>
+                                        <option value="#"> </option>
+                                        <% for (Status st : status) {%>
+                                        <option value="<%= st.getId()%>"> <%= st.getNome()%></option>
+                                        <% } %>
                                     </select>
                                 </div>
                                 <div class="form-group">  
                                     <label>Logradouro de Coleta</label>  
                                     <select name="LOGC" id="logc" class="form-control" autofocus  required>
-                                    <option value="#"> </option>
-                                    <% for(Logradouro lg : logradouros) { %>
-                                    	<option value="<%= lg.getId() %>"> CEP: <%= lg.getCep() %></option>
-                                    <% } %>
+                                        <option value="#"> </option>
+                                        <% for (Logradouro lg : logradouros) {%>
+                                        <option value="<%= lg.getId()%>"> CEP: <%= lg.getCep()%></option>
+                                        <% } %>
                                     </select>
                                 </div>
                                 <div class="form-group">  
                                     <label>Logradouro de Entrega</label>  
                                     <select name="LOGE" id="loge" class="form-control" autofocus required>
-                                     <option value="#"> </option>
-                                    <% for(Logradouro lg : logradouros) { %>
-                                    	<option value="<%= lg.getId() %>"> CEP: <%= lg.getCep() %></option>
-                                    <% } %>
+                                        <option value="#"> </option>
+                                        <% for (Logradouro lg : logradouros) {%>
+                                        <option value="<%= lg.getId()%>"> CEP: <%= lg.getCep()%></option>
+                                        <% } %>
                                     </select>
                                 </div>
-                                
+
                                 <div class="form-group">  
                                     <label>Usuario de Coleta</label>  
                                     <select name="USUC" id="usuc" class="form-control" autofocus required>
-                                    <option value="#"> </option>
-                                    <% for(Usuario usu : usuarios) { 
-                                    	Pessoa p = new ControllerPessoa().buscar(new Pessoa(usu.getId_pessoa()));
-                                    %>
-                                    	<option value="<%= usu.getId() %>"> <%= p.getNome() %> (ID: <%= p.getId() %>)</option>
-                                    <% } %>
+                                        <option value="#"> </option>
+                                        <% for (Usuario usu : usuarios) {
+                                                Pessoa p = new ControllerPessoa().buscar(new Pessoa(usu.getId_pessoa()));
+                                        %>
+                                        <option value="<%= usu.getId()%>"> <%= p.getNome()%> (ID: <%= p.getId()%>)</option>
+                                        <% } %>
                                     </select>
                                 </div>
                                 <div class="form-group">  
                                     <label>Usuario de Entrega</label>  
                                     <select name="USUE" id="usue" class="form-control" autofocus required>
-                                    <option value="#"> </option>
-                                    <% for(Usuario usu : usuarios) { %>
-                                    	<option value="<%= usu.getId() %>"> <%= new ControllerPessoa().buscar(new Pessoa(usu.getId_pessoa())).getNome() %></option>
-                                    <% } %>
+                                        <option value="#"> </option>
+                                        <% for (Usuario usu : usuarios) {%>
+                                        <option value="<%= usu.getId()%>"> <%= new ControllerPessoa().buscar(new Pessoa(usu.getId_pessoa())).getNome()%></option>
+                                        <% } %>
                                     </select>
                                 </div>
-                                
+
                                 <div class="form-group">  
                                     <input type="text" name="COMPL" id="compl" class="form-control" placeholder="Complemento" autofocus required>
                                 </div>
@@ -143,29 +143,29 @@
                                 <div class="form-group">  
                                     <label>Materiais: </label>  
                                     <select name="MAT" id="mat" class="form-control" autofocus required style="margin-bottom: 20px"> 
-                                    <option value="#"> </option>
-                                    <% for(Material mat : materiais) { %>
-                                    	<option value="<%= mat.getId() %>"> <%= mat.getDescricao() %> (<%= mat.getId() %>)</option>
-                                    <% } %>
+                                        <option value="#"> </option>
+                                        <% for (Material mat : materiais) {%>
+                                        <option value="<%= mat.getId()%>"> <%= mat.getDescricao()%> (<%= mat.getId()%>)</option>
+                                        <% }%>
                                     </select>
-                                
-                                	
-                                	
-                                	<div onclick="addMaterial()"><button class="btn btn-primary" >Adicionar</button></div>
-                                
-                                	<p id="MATSADD">Materiais Adicionados: </p>
 
+
+
+                                    <div onclick="addMaterial()"><button class="btn btn-primary" >Adicionar</button></div>
+
+                                    <p id="MATSADD">Materiais Adicionados: </p>
+                                    
                                     <input type="text" value="" name="MATSID" id="MATSID" style="display: none;">
                                 </div>
 
                                 <div class="form-group">
 
                                     <div class="btn-login">
-                                        
+
                                         <button id="entrar" type="submit" name="ENVIAR" value="ENVIAR" class="btn btn-info btn-md" >Agendar</button><br>
                                     </div>  
 
-                                    
+
                                 </div>
 
                             </form>
