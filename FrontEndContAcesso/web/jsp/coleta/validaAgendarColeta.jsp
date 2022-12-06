@@ -1,3 +1,6 @@
+<%@page import="com.recicla.material.model.bean.Material"%>
+<%@page import="com.recicla.material.controller.ControllerMaterial"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.recicla.coleta.controller.ControllerColeta"%>
 <%@page import="com.recicla.coleta.model.bean.Coleta"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -23,12 +26,25 @@
     int usue = Integer.parseInt(request.getParameter("USUE"));
     String compl = request.getParameter("COMPL");
     int quant = Integer.parseInt(request.getParameter("QUANT"));
+    String matsid = request.getParameter("MATSID");
     
     Date data_inicio = new Date();
+
+    String[] ids = matsid.split(",");
+    
+    ControllerMaterial contMat = new ControllerMaterial();
 
     Coleta newCol = new Coleta(status, compl, quant, new java.sql.Date(data_inicio.getTime()), logc, loge, usuc, usue);
 	ControllerColeta contCol = new ControllerColeta();
 	Coleta colSai = contCol.inserir(newCol);
+	
+    
+    for(String idM : ids){
+    	Material mat = contMat.buscar(new Material(Integer.parseInt(idM)));
+    	mat.setId_coleta(colSai.getId());
+    	contMat.alterar(mat);
+    }
+    
     
    String url = "menu.jsp";
    response.sendRedirect(url);

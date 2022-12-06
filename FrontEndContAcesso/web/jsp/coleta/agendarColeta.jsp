@@ -1,3 +1,5 @@
+<%@page import="com.recicla.material.model.bean.Material"%>
+<%@page import="com.recicla.material.controller.ControllerMaterial"%>
 <%@page import="com.recicla.util.model.bean.Status"%>
 <%@page import="com.recicla.util.controller.ControllerStatus"%>
 <%@page import="com.recicla.contAcesso.model.bean.Pessoa"%>
@@ -15,13 +17,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Implementações estilos CSS -->
+<!-- Implementaï¿½ï¿½es estilos CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
     <link href="../../css/agendarColeta.css" rel="stylesheet">
-    <!-- Implementações SCRIPTS, PLUGINS e ETC -->
+    <!-- Implementaï¿½ï¿½es SCRIPTS, PLUGINS e ETC -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script async="" src="https://www.google-analytics.com/analytics.js"></script>
     <%@include file="../../inc/materalizeWeb.inc" %>
@@ -30,6 +32,25 @@
 </head>
 <body>
 	    <body>
+        <script type="text/javascript">
+            function addMaterial(){
+                var mats = document.getElementById("mat");
+                var matsadd = document.getElementById("MATSADD");
+                var matsid = document.getElementById("MATSID");
+
+                var matvalue = mats.value;
+                var matstext = mats.options[mats.selectedIndex].text;
+
+                var matsidvalue = matsid.value
+
+                mats.value = "";
+
+                matsadd.insertAdjacentText(`${matstext}, `);
+
+                matsid.value = `${matsidvalue},${matvalue}`;                 
+            }
+        
+        </script>
         <div id="login">
             <div class="container">
                 <div id="login-row" class="row justify-content-center align-items-center">
@@ -53,6 +74,11 @@
                             List<Status> stas = contSta.listarTodos();
                             ArrayList<Status> status = new ArrayList<Status>();
                             status.addAll(stas);
+
+                            ControllerMaterial contMat = new ControllerMaterial();
+                            List<Material> mates = contMat.listarTodos();
+                            ArrayList<Material> materiais = new ArrayList<Material>();
+                            materiais.addAll(mates);
                             %>
 
                             <form id="login-form" class="form" action="validaAgendarColeta.jsp" method="post">
@@ -114,7 +140,23 @@
                                     <input type="number" name="QUANT" id="quantidade" class="form-control" placeholder="Quantidade" autofocus required>
                                 </div>
 
+                                <div class="form-group">  
+                                    <label>Materiais: </label>  
+                                    <select name="MAT" id="mat" class="form-control" autofocus required style="margin-bottom: 20px"> 
+                                    <option value="#"> </option>
+                                    <% for(Material mat : materiais) { %>
+                                    	<option value="<%= mat.getId() %>"> <%= mat.getDescricao() %> (<%= mat.getId() %>)</option>
+                                    <% } %>
+                                    </select>
                                 
+                                	
+                                	
+                                	<div onclick="addMaterial()"><button class="btn btn-primary" >Adicionar</button></div>
+                                
+                                	<p id="MATSADD">Materiais Adicionados: </p>
+
+                                    <input type="text" value="" name="MATSID" id="MATSID" style="display: none;">
+                                </div>
 
                                 <div class="form-group">
 
@@ -133,12 +175,12 @@
             </div>
         </div> 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="padding-top: 10%;">
-                <path fill="#808080" fill-opacity="1" d="M0,160L60,160C120,160,240,160,360,165.3C480,171,600,181,720,170.7C840,160,960,128,1080,117.3C1200,107,1320,117,1380,122.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        ï¿½ï¿½      <path fill="#808080" fill-opacity="1" d="M0,160L60,160C120,160,240,160,360,165.3C480,171,600,181,720,170.7C840,160,960,128,1080,117.3C1200,107,1320,117,1380,122.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
         </svg>
 
         <div class="rodape pn">
             <div class="t-center">
-                © 2022 ADS FATEC 
+                ï¿½ 2022 ADS FATEC 
             </div>
         </div>
     </body>

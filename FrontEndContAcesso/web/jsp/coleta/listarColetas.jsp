@@ -1,4 +1,3 @@
-<%@page import="com.recicla.util.controller.ControllerStatus"%>
 <%@page import="com.recicla.coleta.model.bean.Logradouro"%>
 <%@page import="com.recicla.coleta.controller.ControllerLogradouro"%>
 <%@page import="com.recicla.contAcesso.model.bean.Pessoa"%>
@@ -41,10 +40,11 @@ List<Coleta> colSai = contCol.listarTodos();
 					<h5 class="card-title">Id da Coleta: <%= col.getId() %></h5>
 					<p class="card-text"> O usuário: <%= new ControllerPessoa().buscar(new Pessoa(new ControllerUsuario().buscar(new Usuario(col.getIdUsuarioR())).getId_pessoa())).getNome() %> requeriu
 					uma entrega do CEP: <%= new ControllerLogradouro().buscar(new Logradouro(col.getIdLogradouroR())).getCep() %> para o CEP: <%= new ControllerLogradouro().buscar(new Logradouro(col.getIdLogradouroE())).getCep() %>
-                                        atribuida para o usuário: <%= new ControllerPessoa().buscar(new Pessoa(new ControllerUsuario().buscar(new Usuario(col.getIdUsuarioE())).getId_pessoa())).getNome() %> Status: <%= new ControllerStatus().buscar(new ControllerUsuario().buscar(new Usuario(col.getIdUsuarioR())).getStatus()).getNome() %></p>
+					atribuida para o usuário: <%= new ControllerPessoa().buscar(new Pessoa(new ControllerUsuario().buscar(new Usuario(col.getIdUsuarioE())).getId_pessoa())).getNome() %></p>
 					
 					<div class="d-flex">
 						<form action="validaConcluirColeta.jsp" style="margin-right: 40px">
+							<input name="ID" value="<%= col.getId() %>" style="display: none"/>
 							<button type="submit" class="btn btn-primary">Concluir</button>
 						</form>
 						<form action="validaBuscarColeta.jsp">
